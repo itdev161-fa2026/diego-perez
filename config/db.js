@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
 import config from 'config';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Get the connection string
 const db = config.get('mongoURI');
