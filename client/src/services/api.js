@@ -8,7 +8,7 @@ const api = axios.create({
 });
 
 // Add request interceptor to include auth token
-api.insterceptors.request.use(
+api.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('token');
         if (token) {
@@ -58,7 +58,7 @@ export const loginUser = async (email, password) => {
 // Get all posts
 export const getPosts = async () => {
     try {
-        const response = await axios.get('${API_URL}/posts');
+        const response = await axios.get(`${API_URL}/posts`);
         return response.data;
     } catch (error){
         console.error('Error fetching posts: ', error);
